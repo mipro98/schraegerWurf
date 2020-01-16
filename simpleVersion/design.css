@@ -1,0 +1,67 @@
+
+body {
+}
+
+p.texts {
+	display: inline-block;
+	font-size: 30;
+	font-family: sans-serif;
+}
+
+input.eingaben {
+	font-size: 30; 
+	margin-right: 50;
+	font-family: sans-serif;
+}
+
+#container {
+	width: 1390;
+	padding: 20;
+	background-color: #CFD8DC;
+	margin: 0 auto;
+}
+
+#heading{
+	text-align: center; 
+	font-size: 30; 
+	margin-top: 20;
+	font-family: sans-serif;
+}
+
+#canvas {
+	display: block;
+	background: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	text-align: center;
+}
+
+#credits {
+	margin-right: 20;
+	font-family:roboto, sans-serif;
+	font-size: 20;
+	color: grey;
+	text-align: center;
+}
+
+#start { 
+	font-family:  sans-serif;
+	font-size: 30;
+	padding: 10;
+	margin: 5;
+	float: right;
+}
+
+#reset {
+	font-family:  sans-serif;
+	font-size: 30;
+	padding: 10;
+	margin: 5;
+	float: right;
+}
+
+#anmerkung {
+	color: grey;
+	font-size: 20;
+}

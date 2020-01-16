@@ -1,0 +1,134 @@
+<html lang = "de">
+<head>
+<meta charset="utf-8">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+<link rel= "stylesheet" href= "design_schraeger_wurf.css"/>
+
+<script type="text/javascript" src="script_schraeger_wurf.js"></script>
+
+<title>Schräger Wurf</title>
+</head>
+
+
+
+<body onload = "load();">
+
+<p id = "heading">Berechnung einer Flugbahn</p>
+
+<table style="margin: 0 auto">
+<tr>
+	<td valign = "center" >
+		<div style = "margin-right: -5" id = "throw_type_box">
+			<div id = "label_throw"></div>
+		</div>
+	</td>
+	<td>
+		<div id = "outline">
+
+		<div id = "header">
+			<button id = "werte_btn" type = "button" onclick = "zeigeWerte();">WERTE</button>
+			<button id = "start" type = "button" onclick = "starte();">Start</button>
+			<button id = "reset" type = "button" onclick = "resetFields();">Reset</button>
+			<p class="previews" id = "radius_preview"></p>
+			<p class="previews" id = "masse_preview"></p>
+			<p class="previews" id = "gesch_preview"></p>
+			<p class="previews" id = "hoehe_preview"></p>
+			<p class="previews" id = "winkel_preview"></p>
+		</div>
+
+		<div id = "scale_box">
+			<label id = "plus_minus">+</label>
+			<input id="slider_size" type = "range" min = "50" max = "1000" value="150" step = "50" oninput = "updateSizeSlider();" onkeydown = "updateSizeSlider();">
+			<label id = "plus_minus">–</label>
+		</div>
+
+			
+		<div id = "datafield">
+			<div id = "div_data_container"><label class="dataLabel">Weite:</label><label class="dataValues" id ="width_value_label">m</label></div>
+			<div id = "div_data_container"><label class="dataLabel">Höhe:</label><label class="dataValues" id ="height_value_label">m</label></div>
+			<div id = "div_data_container"><label class="dataLabel">Zeit:</label><label class="dataValues" id = "time_value_label">s</label></div>
+		</div>
+
+		<div id = "eingabefeld">
+
+		<div id="expert_div">
+		<button id="expert_btn" type = "button" onclick = "changeMode();">Expertenmodus</button>
+			
+			<table id = "table_expert" width = "90%">
+				<tr>
+					<td><p class="expertTexts">c<sub>w</sub>-Wert:</p></td>
+					<td><input type = "text" class="expertFelder" id= "cw_feld" maxlength= "5" size = "1" ></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><p class="expertTexts">Fallbeschleunigung:</p></td>
+					<td><input type = "text" class="expertFelder" id= "fall_feld" maxlength= "5" size = "1"></td>
+					<td><p class = "expertEinheiten">m/s²</p></td>
+				</tr>
+				<tr>
+					<td><p class="expertTexts">Dichte:</p></td>
+					<td><input type = "text" class="expertFelder" id= "dichte_feld" maxlength= "5" size = "1"></td>
+					<td><p class = "expertEinheiten">kg/m²</p></td>
+				</tr>
+			</table>
+		</div>
+
+		<table width = "70%">
+			<tr>
+				<td><p class="inputTexts" id = "winkel_text">Abwurfwinkel:</p></td>
+				<td><input  type = "text" class="textFelder" id= "winkel_feld" maxlength= "5" size = "1" onchange = "inputChanged();" onkeypress = "this.onchange();" onpaste = "this.onchange();" oninput  = "this.onchange();"></td>
+				<td><p class="eingabeEinheiten" id = "winkel_einheit">°</p></td>
+				<td><input class="radioButton" id="chk_ball" type="radio" name="draw" ><label class="optionsTexts" for="chk_ball">Nur Ball zeichnen</label></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><p class="inputTexts" id = "hoehe_text">Abwurfhöhe:</p></td>
+				<td><input type = "text" class="textFelder" id= "hoehe_feld" maxlength= "5" size = "1" onchange = "inputChanged();" onkeypress = "this.onchange();" onpaste = "this.onchange();" oninput  = "this.onchange();"></td>
+				<td><p class="eingabeEinheiten" id = "hoehe_einheit">m</p></td>
+				<td><input class="radioButton" id="chk_graph" type="radio" name="draw" checked="true"><label class="optionsTexts" for="chk_graph">Graph zeichnen</label></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><p class="inputTexts" id = "geschwindigkeit_text">Anfangsgeschwindigkeit:</p></td>
+				<td><input type = "text" class="textFelder" id= "geschwindigkeit_feld" maxlength= "5" size = "1" onchange = "inputChanged();" onkeypress = "this.onchange();" onpaste = "this.onchange();" oninput  = "this.onchange();"></td>
+				<td><p class="eingabeEinheiten" id = "geschwindigkeit_einheit">m/s</p></td>
+				<td><input class="radioButton" id="chk_points" type="radio" name="draw"><label class="optionsTexts" for="chk_points">Punkte zeichnen</label></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><p class="inputTexts" id = "masse_text">Masse:</p></td>
+				<td><input type = "text" class="textFelder" id= "masse_feld" maxlength= "5" size = "1" onchange = "inputChanged();" onkeypress = "this.onchange();" onpaste = "this.onchange();" oninput  = "this.onchange();"></td>
+				<td><p class="eingabeEinheiten" id = "masse_einheit">kg</p></td>
+				<td><input class="radioButton" id="chk_graph_points" type="radio" name="draw" ><label class="optionsTexts" for="chk_graph_points">Graph mit Punkten zeichnen</label></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><p class="inputTexts" id = "radius_text">Radius:</p></td>
+				<td><input type = "text" class="textFelder" id= "radius_feld" maxlength= "5" size = "1" onchange = "inputChanged();" onkeypress = "this.onchange();" onpaste = "this.onchange();" oninput  = "this.onchange();"></td>
+				<td><p class="eingabeEinheiten" id = "radius_einheit">m</p></td>
+				<td><label id="label_slider">Intervall: </label><input id="slider" type = "range" min = "0.01" max = "0.5" value="0.01" step = "0.01" oninput="updateIntervallSlider();" onkeydown = "updateIntervallSlider();"><label id="deltatime">0.01s</label></td>
+				<td></td>
+			</tr>
+		</table>
+
+		<button id="random_btn" type = "button" onclick = "randomValues();">Zufallswerte</button>
+
+		</div>
+
+		<canvas id = "canvas" height = "765" width = "1360" > Dein Browser kann kein Canvas! </canvas>
+
+		</div>
+	</td>
+	<td>
+		<div style="width: 60px"></div>
+	</td>
+</tr>
+</table>
+
+<div style="text-align: center; margin-top: 20;"> 
+<span id = "credits" ><b>© Tobias Stadler || Michael Prommersberger</b></span>
+</div>
+    
+</body>
+</html>

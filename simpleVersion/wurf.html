@@ -1,0 +1,45 @@
+<html lang = "de">
+<head>
+
+<link rel= "stylesheet" href= "design.css"/>
+
+<script type="text/javascript" src="script.js"></script>
+
+<title>Schräger Wurf</title>
+</head>
+
+
+
+<body onload = "load();">
+
+	<p id = "heading">Berechnung einer Flugbahn beim schrägen Wurf mit Luftwiderstand</p>
+
+	<div id = "container" >		
+		<p class = "texts" >Abwurfwinkel (Grad):</p>
+		<input class = "eingaben" type = "text" id= "winkel_feld" maxlength= "5" size = "1" >
+			
+		<p class = "texts" >Abwurfhöhe (m):</p>
+		<input class = "eingaben" type = "text" id= "hoehe_feld" maxlength= "5" size = "1" >
+		
+		<p class = "texts" >Anfangsgeschwindigkeit (m/s):</p>
+		<input class = "eingaben" type = "text" id= "geschwindigkeit_feld" maxlength= "5" size = "1" >
+		
+		<p class = "texts" >Masse (kg):</p>
+		<input class = "eingaben" type = "text" id= "masse_feld" maxlength= "5" size = "1" >
+		
+		<p class = "texts">Radius (m):</p>
+		<input class = "eingaben" type = "text" id= "radius_feld" maxlength= "5" size = "1" >
+		
+		<p class = "texts" id = "anmerkung">- Radius nicht zu groß wählen! <br> - Kommawerte bitte mit "." (Punkt) statt "," (Komma) eingeben</p>		
+		
+		<br/>
+		<button id = "start" type = "button" onclick = "starte();">Start</button>
+		<button id = "reset" type = "button" onclick = "resetFields();">Reset</button>		
+		<br/>
+		<canvas id = "canvas" height = "765" width = "1360" > Dein Browser kann kein Canvas! </canvas>
+	</div>
+	
+	<p id = "credits" style = "text-align: center"><b>Tobias Stadler || Michael Prommersberger | (simple version)</b></p>
+
+</body>
+</html>
