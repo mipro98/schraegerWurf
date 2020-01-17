@@ -664,7 +664,7 @@ var interval_id;
 function easterEgg() {
 	schliessen();
 	var img = new Image();
-	img.src = "https://i.ebayimg.com/images/g/ONAAAOSwLVZVukVM/s-l1600.jpg";
+	img.src = "https://your-image-url-here";
 	if(rintervall > 50) {
 		clearInterval(interval_id);
 		ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
