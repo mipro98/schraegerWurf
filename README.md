@@ -1,6 +1,7 @@
 # Schräger Wurf Demo Web Site
 
 Some HTML/JS Demo App from an old school project.
+With this small web application you can simulate the trajectory of a thrown ball including air resistance considerations.
 
 ![screenshot](screenshot.png)
 
@@ -10,7 +11,7 @@ Just clone the repository and open the `html` file in your favourite Web Browser
 
 You can also try to find the easter egg ;-)
 
-## Features
+## "Features"
 
 * You can change the following parameters:
   * throwing angle
