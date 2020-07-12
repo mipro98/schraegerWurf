@@ -1,6 +1,6 @@
 # Schräger Wurf Demo Web Site
 
-Some HTML/JS Demo App from an old school project.
+Some HTML/JS Demo App from an old school project with [@devtobi](https://github.com/devtobi).
 With this small web application you can simulate the trajectory of a thrown ball including air resistance considerations.
 
 ![screenshot](screenshot.png)
